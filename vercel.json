@@ -4,13 +4,7 @@
     {
       "src": "package.json",
       "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["dist/**"]
-      }
-    },
-    {
-      "src": "dist/public/**",
-      "use": "@vercel/static"
+      "config": { "includeFiles": ["dist/**"] }
     }
   ],
   "routes": [
@@ -20,7 +14,14 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/public/index.html"
+      "headers": { "cache-control": "s-maxage=1, stale-while-revalidate" },
+      "dest": "/dist/public/$1"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/dist/public/index.html"
     }
   ]
 }
