@@ -3,8 +3,7 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -14,14 +13,7 @@
     },
     {
       "src": "/(.*)",
-      "headers": { "cache-control": "s-maxage=1, stale-while-revalidate" },
-      "dest": "/dist/public/$1"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/dist/public/index.html"
+      "dest": "/dist/public/index.html"
     }
   ]
 }
