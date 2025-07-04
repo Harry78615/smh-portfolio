@@ -3,7 +3,10 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["dist/**"]
+      }
     }
   ],
   "routes": [
@@ -12,8 +15,14 @@
       "dest": "/dist/index.js"
     },
     {
+      "src": "/(.*\\.(css|js|map|ico|gif|png|jpg|jpeg|svg|webp|woff|woff2|ttf|eot))$",
+      "dest": "/dist/public/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/dist/public/index.html"
     }
-  ]
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
 }
