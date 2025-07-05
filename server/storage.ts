@@ -14,6 +14,7 @@ export class DatabaseStorage implements IStorage {
       .insert(contacts)
       .values(insertContact)
       .returning();
+	console.log('DEBUG: createContact result:', contact);
     return contact;
   }
 
