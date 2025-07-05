@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "dist/index.js": {
-      "runtime": "nodejs18.x" // <--- CHANGE THIS LINE
+      "runtime": "@vercel/node@20.x" // <--- CHANGE THIS LINE
     }
   },
   "routes": [
