@@ -63,8 +63,6 @@ app.use((req, res, next) => {
   const port = process.env.PORT || 8e3; // Use port from .env, or default to 8000
 server.listen({
     port
-     // Change from "localhost" to "127.0.0.1"
-    // reusePort: true,
 }, () => {
     log(`serving on port ${port}`);
 });

@@ -2,7 +2,6 @@
 
 A modern, responsive portfolio website showcasing my expertise in IT Operations, Digital Transformation, and Software Development.
 
-## Dummy commit
 
 ## 📋 Features
 
