@@ -2,9 +2,7 @@
 
 A modern, responsive portfolio website showcasing my expertise in IT Operations, Digital Transformation, and Software Development.
 
-## 🚀 Live Demo
 
-[Visit Portfolio Website](your-deployed-url-here)
 
 ## 📋 Features
 
