@@ -62,8 +62,8 @@ app.use((req, res, next) => {
   // It is the only port that is not firewalled.
   const port = process.env.PORT || 8000; // Use port from .env, or default to 8000
 server.listen({
-    port,
-    host: "127.0.0.1", // Change from "localhost" to "127.0.0.1"
+    port
+    // Change from "localhost" to "127.0.0.1"
     // reusePort: true,
 }, () => {
     log(`serving on port ${port}`);
