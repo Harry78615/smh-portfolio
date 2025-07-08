@@ -1,21 +1,27 @@
-import 'dotenv/config';
+// server/index.js
 import express from 'express';
-import { registerRoutes } from './routes';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// Serve static files from client build
+app.use(express.static(path.join(__dirname, '../../dist')));
 
-// Register API routes
-registerRoutes(app);
+// API routes
+app.get('/api/data', (req, res) => {
+  res.json({ message: 'Hello from Supabase' });
+});
 
-// Serve static files in production
-if (process.env.NODE_ENV === 'production') {
-  const distPath = path.resolve(process.cwd(), 'dist', 'public');
-  app.use(express.static(distPath));
-  app.get('*', (_, res) => res.sendFile(path.join(distPath, 'index.html')));
-}
+// Handle client-side routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'));
+});
 
-export default app;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
