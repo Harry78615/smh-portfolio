@@ -4,12 +4,11 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-  "dev": "vite --host",
-  "build": "vite build",
-  "serve": "node -r dotenv/config server/index.js",
-  "start": "npm run build && npm run serve",
-  "db:push": "drizzle-kit push"
-},
+    "dev": "vite --host",
+    "build": "vite build",
+    "serve": "node -r dotenv/config server/index.js",
+    "start": "npm run build && npm run serve"
+  },
   "engines": {
     "node": "20.x"
   },
@@ -30,8 +29,8 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
-    "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.32.1",
+    "dotenv": "^16.6.1",
+    "drizzle-orm": "^0.32.2",
     "drizzle-zod": "^0.5.1",
     "express": "^4.19.2",
     "framer-motion": "^11.3.12",
@@ -51,6 +50,7 @@
     "tailwindcss-animate": "^1.0.7",
     "tsx": "^4.16.2",
     "wouter": "^3.3.1",
+    "ws": "^8.18.3",
     "zod": "^3.23.8",
     "zod-validation-error": "^3.4.0"
   },

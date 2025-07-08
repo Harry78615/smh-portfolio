@@ -10,6 +10,16 @@ export default defineConfig({
       '@shared': path.resolve(__dirname, '../shared')
     }
   },
+   root: path.resolve(__dirname, '../'), // Points to project root
+  build: {
+    outDir: 'dist', // Output to /dist in root
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, '../index.html') // Explicit entry point
+      }
+    }
+  },
   // ADD THIS SERVER CONFIG
   server: {
     host: true,
