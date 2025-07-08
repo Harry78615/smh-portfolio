@@ -1,15 +1,12 @@
+// vercel.json
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "dist/index.js",
-      "use": "@vercel/node"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/index.js"
-    }
+  "builds": [
+    { "src": "package.json", "use": "@vercel/static-build" }
   ]
 }
