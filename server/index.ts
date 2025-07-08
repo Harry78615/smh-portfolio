@@ -1,20 +1,21 @@
 import 'dotenv/config';
 import express from 'express';
 import { registerRoutes } from './routes';
-import { serveStatic } from './vite';
+import path from 'path';
 
-// Create the Express app
 const app = express();
 
-// Add middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Add your API routes
+// Register API routes
 registerRoutes(app);
 
-// Add the logic to serve the frontend files
-serveStatic(app);
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+  const distPath = path.resolve(process.cwd(), 'dist', 'public');
+  app.use(express.static(distPath));
+  app.get('*', (_, res) => res.sendFile(path.join(distPath, 'index.html')));
+}
 
-// Export the app for Vercel to use
 export default app;
