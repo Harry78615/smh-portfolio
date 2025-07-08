@@ -9,5 +9,19 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       '@shared': path.resolve(__dirname, '../shared')
     }
+  },
+  // ADD THIS SERVER CONFIG
+  server: {
+    host: true,
+    port: 3000,
+    strictPort: true,
+    hmr: {
+      port: 3010
+    }
+  },
+  // ADD THIS BUILD CONFIG
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true
   }
 })
