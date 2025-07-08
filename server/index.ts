@@ -13,10 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 // Add your API routes
 registerRoutes(app);
 
-// Add the logic to serve the frontend files in production
-if (process.env.NODE_ENV === 'production') {
-  serveStatic(app);
-}
+// Add the logic to serve the frontend files
+serveStatic(app);
 
 // Export the app for Vercel to use
 export default app;
