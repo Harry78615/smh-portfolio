@@ -7,7 +7,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@shared': path.resolve(__dirname, '../shared')
+      '@shared': path.resolve(__dirname, '../shared'),
+      '@tanstack/react-query': path.resolve(__dirname, '../node_modules/@tanstack/react-query')
     }
   },
    root: path.resolve(__dirname, '../'), // Points to project root
